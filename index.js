@@ -17,5 +17,4 @@ const renderCharacters = async (characters) => {
 
 }
 
-
 getCharacter()
