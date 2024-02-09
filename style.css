@@ -1,3 +1,13 @@
+:root {
+    --color-yellow: #FFD600;
+    --color-dark-grey: #424242;
+    --color-light-grey: #E1DEDE;
+    --color-grey: #8E8E8E;
+    --color-details-header:#748687;
+    --font-Ropa-Sans:'Ropa Sans', sans-serif;
+    --font-Roboto: 'Roboto', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,23 +15,174 @@
 }
 
 html {
-    background-color: white;
+    background-color: black;
 }
 
 body {
-    width: 700px;
+    width: 1200px;
     margin: auto;
+    height: 100vh;
 }
 
+h2{
+    font-family: var(--font-Roboto);
+    color: var(--color-yellow);
+    text-align: center;
+    padding-top: 7px;    
+}
+
+/*----------------Header-------------*/
+
 header{
-    height: 200px;
+    height: 280px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    font-family: var(--font-Ropa-Sans);
+    font-size: 48px;
+    color: var(--color-yellow);
+    background-image: url(img/a3fae2ef0c636e73f74801f44296aa74.jpeg);
+    background-size: 1200px;
 }
+
+.header-text {
+    padding-left: 50px;
+}
+
+/*----------Content-----------*/
 
 .content-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    background-color: var(--color-dark-grey);
+    height: 100vh;
 }
+
+/*------------Characters list----------*/
+
+#character-container{
+    background-color: white;
+    width: 35%;
+    margin-top: -30px;
+    box-shadow: 4px 4px 4px 0px #0000003D;
+
+}
+
+.char-h2{
+    background-color: var(--color-dark-grey);
+    padding: 15px
+}
+
+li {
+    font-family: var(--font-Roboto);
+    font-size: 20px;
+    list-style: none;
+    padding-left: 7px;
+    background-color: var(--color-light-grey);
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom:  15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+li:nth-child(odd) {
+    background: var(--color-grey)
+}
+
+li:hover {
+    background-color: var(--color-dark-grey);
+}
+    
+li:hover a{
+    color: var(--color-light-grey);
+}
+
+li:hover #arrow {
+    display: flex;
+    color: var(--color-light-grey);
+}
+
+a{
+    text-decoration: none;
+    color: var(--color-dark-grey);
+}
+
+#arrow{
+   display: none;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.page-info {
+    font-family: var(--font-Roboto);
+    font-size: 18px;
+    font-weight: 200;
+
+}
+
+button {
+    border: 0px;
+    padding: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+
+/*----------------Details------------*/
+#details-container{
+    background-color: var(--color-light-grey);
+    width: 35%;
+    margin-top: -30px;
+    box-shadow: 4px 4px 4px 0px #0000003D;
+
+} 
+
+.details-h2{
+    background-color: var(--color-details-header);
+    padding: 15px
+}
+
+h3{
+    font-family: var(--font-Roboto);
+    font-size: 30px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+p{
+    font-family: var(--font-Roboto);
+    font-size: 16px;
+    margin-bottom: 7px;
+    margin-left: 30px;
+    line-height: 21px;
+    letter-spacing: 20%;
+}
+
+span{
+    font-weight: 700;
+}
+/*-----------Character details-------*/
+
+.char-info {
+    padding-top: 20px;
+    height: 300px;
+
+}
+
+
+/*------------Planet details----------*/
+
+.planet-info {
+    background-color:#8E8E8E;
+    padding-top: 20px;
+    height: 300px;
+    color:var(--color-light-grey)
+
+}
+

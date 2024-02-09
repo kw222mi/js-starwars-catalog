@@ -27,9 +27,11 @@ const displayCharactersResult = async (charactersObject) => {
     const end = start + itemsPerPage;
     const slicedCharacterArray = charactersArr.slice(start, end);
 
-    let html = "<ul class='char-ul'>";
+    let html = "<h2 class='char-h2'>Characters </h2> <ul class='char-ul'>";
     slicedCharacterArray.map((char, index) => {
-      html += `<li><a href="#" class="char-link" data-index="${index}">${char.name}</a></li>`;
+      html += `<li><a href="#" class="char-link" data-index="${index}">${char.name}</a><span id='arrow'class="material-symbols-outlined">
+arrow_right
+</span></li>`;
     });
     html += "</ul>";
 
@@ -39,14 +41,18 @@ const displayCharactersResult = async (charactersObject) => {
 
                 <button class="prev-btn"${
                   currentPage === 1 ? "disabled" : ""
-                }>Prev</button>
+                }><span class="material-symbols-outlined">
+                  chevron_left
+                  </span></button>
                 <span class="page-info">${start + 1}-${Math.min(
       end,
       numberOfCharacters
     )} / ${numberOfCharacters}</span>
                 <button class="next-btn" ${
                   end >= numberOfCharacters ? "disabled" : ""
-                }>Next</button>
+                }><span class="material-symbols-outlined">
+                    chevron_right
+                    </span></button>
 
             </div>
          `;
@@ -93,7 +99,8 @@ const renderDetails = async (char) => {
 
   const detailsHTML = `
   <div>
-    <p><span>Name: </span>${char.name}</p>
+    <h3>${char.name} </h3>
+    
     <p><span>Height: </span>${char.height}</p>
     <p><span>Mass: </span>${char.mass}</p>
     <p><span>Hair color: </span>${char.hair_color}</p>
@@ -104,15 +111,24 @@ const renderDetails = async (char) => {
 
   </div>
   `;
-  
+
   charDetails.innerHTML = detailsHTML;
 
   let planetDetails = document.querySelector(".planet-info");
   let planet = await getCharacter(char.homeworld);
- 
+
   const planetHTML = `
-    
-  `
+    <h3>${planet.name} </h3>
+    <p><span>Terrain: </span>${planet.terrain}</p>
+    <p><span>Diameter: </span>${planet.diameter}</p>
+    <p><span>Rotation period: </span>${planet.rotation_period}</p> 
+    <p><span>Population: </span>${planet.population}</p>
+    <p><span>Orbital period: </span>${planet.orbital_period}</p>
+    <p><span>Climate: </span>${planet.climate}</p>
+    <p><span>Gravity: </span>${planet.gravity}</p>
+  `;
+
+  planetDetails.innerHTML = planetHTML;
 };
 
 charactersObject = await getCharacter("https://swapi.dev/api/people/");
