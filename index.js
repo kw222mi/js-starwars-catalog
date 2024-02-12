@@ -10,8 +10,6 @@ const getCharacter = async (url) => {
     const response = await fetch(url);
     charactersObject = await response.json();
     console.log(charactersObject);
-    //console.log(charactersObject.results);
-    //console.log(charactersObject.results[0]);
 
     return charactersObject;
   } catch (error) {
@@ -66,6 +64,7 @@ arrow_right
     charList.addEventListener("click", (e) => {
       let index = e.target.attributes[2].value;
       console.log(index);
+      clearDetails();
       renderDetails(slicedCharacterArray[index]);
     });
 
@@ -93,6 +92,13 @@ arrow_right
   renderCharacters();
 };
 
+const clearDetails = () => {
+  let charDetails = document.querySelector(".char-info");
+  charDetails.innerHTML = "";
+  let planetDetails = document.querySelector(".planet-info");
+  planetDetails.innerHTML = "";
+};
+
 const renderDetails = async (char) => {
   let charDetails = document.querySelector(".char-info");
   console.log(char.name);
@@ -101,8 +107,8 @@ const renderDetails = async (char) => {
   <div>
     <h3>${char.name} </h3>
     
-    <p><span>Height: </span>${char.height}</p>
-    <p><span>Mass: </span>${char.mass}</p>
+    <p><span>Height: </span>${char.height} <span>cm<span></p>
+    <p><span>Mass: </span>${char.mass} <span>kg<span></p>
     <p><span>Hair color: </span>${char.hair_color}</p>
     <p><span>Skin color: </span>${char.skin_color}</p>
     <p><span>Eye color: </span>${char.eye_color}</p>
